@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>待辦事項清單</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<h1>待辦事項清單</h1>
+
+<div class="todo-container">
+    <div class="sort-options">
+        <select id="sortOptions" onchange="sortTodos()">
+            <option value="alphabetical">依照字母排序</option>
+            <option value="time">依照新增時間排序</option>
+            <option value="length">依照內容長度排序</option>
+        </select>
+    </div>
+
+    <div class="add-todo">
+        <input type="text" id="newTodo" placeholder="輸入新的待辦事項" onkeydown="checkEnter(event)" />
+        <button onclick="addTodo()">新增</button>
+    </div>
+    <div class="tag-selector">
+        <label>選擇標籤顏色：</label>
+        <div class="color-buttons">
+            <button class="color-btn red" data-color="red"></button>
+            <button class="color-btn blue" data-color="blue"></button>
+            <button class="color-btn green" data-color="green"></button>
+            <button class="color-btn yellow" data-color="yellow"></button>
+            <button class="color-btn purple" data-color="purple"></button>
+            <button class="color-btn none" data-color="">✕</button>
+        </div>
+    </div>
+
+    <!-- 顯示待辦事項的三欄清單 -->
+    <div class="todo-columns">
+        <div class="todo-column" id="pinnedList">
+            <h2>📌 已釘選</h2>
+        </div>
+        <div class="todo-column" id="activeList">
+            <h2>📝 未完成</h2>
+        </div>
+        <div class="todo-column" id="completedList">
+            <h2>✅ 已完成</h2>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
